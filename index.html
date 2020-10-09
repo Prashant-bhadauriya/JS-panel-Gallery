@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Panel Gallery</title>
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="panels">
+        <div class="panel panel1">
+            <p>Let's</p>
+            <p>Move</p>
+            <p>togther</p>
+        </div>
+        <div class="panel panel2">
+            <p>Give</p>
+            <p>Take</p>
+            <p>Receive</p>
+        </div>
+        <div class="panel panel3">
+            <p>Today's</p>
+            <p>Experience</p>
+            <p>Good</p>
+        </div>
+        <div class="panel panel4">
+            <p>Give</p>
+            <p>All</p>
+            <p>Move</p>
+        </div>
+        <div class="panel panel5">
+            <p>Take</p>
+            <p>Me</p>
+            <p>Back</p>
+        </div>
+    </div>
+
+    <script>
+        const panels = document.querySelectorAll('.panel');
+
+        function nowOpen(){
+            this.classList.toggle('open');
+        }
+        function nowClose(e){
+            console.log(e.propertyName);
+            if(e.propertyName.includes('flex')){
+                this.classList.toggle('open-active')
+            }
+        }
+        panels.forEach(panel => panel.addEventListener('click',nowOpen));
+        panels.forEach(panel => panel.addEventListener('transitionend',nowClose));
+    </script>
+</body>
+</html>
